@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MyCis+ — Site web bientôt disponible</title>
+  <meta name="description" content="MyCis+ — La plateforme opérationnelle pensée pour les SDIS, arrive très bientôt."/>
+  <meta name="theme-color" content="#e2222e"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter','system-ui','sans-serif'],
+            display: ['Space Grotesk','system-ui','sans-serif']
+          },
+          colors: {
+            brand:{ red:'#e2222e', orange:'#f48f3d' }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes glow{0%,100%{opacity:.5;filter:blur(40px)}50%{opacity:.8;filter:blur(60px)}}
+    @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+    .glass-ultra{
+      background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.06));
+      backdrop-filter:blur(20px) saturate(180%);
+      -webkit-backdrop-filter:blur(20px) saturate(180%);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 8px 32px rgba(31,38,135,.15)
+    }
+    .text-gradient-animated{
+      background:linear-gradient(90deg,#e2222e,#f48f3d,#f9d7b5,#e2222e);
+      background-size:200% auto;
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:shimmer 3s linear infinite
+    }
+  </style>
+</head>
+
+<body class="antialiased bg-gradient-to-b from-white via-orange-50/20 to-white overflow-hidden min-h-screen flex items-center justify-center px-6 text-slate-900">
+
+  <!-- BG décor néon -->
+  <div class="pointer-events-none absolute inset-0 overflow-hidden">
+    <div class="absolute top-10 left-10 w-72 h-72 rounded-full bg-gradient-to-r from-brand-red/30 to-brand-orange/30 blur-3xl animate-[float_6s_ease-in-out_infinite]"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-gradient-to-r from-brand-orange/20 to-brand-red/20 blur-3xl animate-[float_6s_ease-in-out_2s_infinite]"></div>
+    <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 mx-auto w-[750px] h-[750px] rounded-full bg-gradient-to-r from-brand-red/10 to-brand-orange/10 blur-3xl animate-[glow_4s_ease-in-out_infinite]"></div>
+  </div>
+
+  <!-- Contenu centré -->
+  <main class="relative z-10 max-w-3xl w-full glass-ultra rounded-3xl p-10 md:p-14 text-center shadow-2xl">
+    <!-- Logo -->
+    <div class="inline-flex items-center gap-3 mb-8">
+      <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-red to-brand-orange rounded-xl blur-lg opacity-60"></div>
+        <img src="/logo-mycis.png" alt="MyCis+" class="relative h-12 w-auto rounded-xl"/>
+      </div>
+      <span class="text-2xl font-display font-bold">MyCis<span class="text-gradient-animated">+</span></span>
+    </div>
+
+    <!-- Titre -->
+    <h1 class="text-4xl md:text-5xl font-display font-bold leading-tight text-slate-900 mb-6">
+      Notre site web est <span class="text-gradient-animated">bientôt en ligne</span>
+    </h1>
+
+    <!-- Laïus -->
+    <p class="text-lg text-slate-600 leading-relaxed">
+      Pensée par et pour les sapeurs-pompiers, <strong>MyCis+</strong> est une plateforme opérationnelle 
+      nouvelle génération. Véhicules, pharmacie, inventaires et vie de la caserne :  
+      tout est réuni dans une solution <em>simple, rapide et intuitive</em> pour faciliter le quotidien des SDIS.
+    </p>
+
+    <!-- Bas de page -->
+    <p class="mt-10 text-xs text-slate-500">© <span id="year"></span> MyCis+. Tous droits réservés - Powered by Ludovic Geraldes</p>
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
